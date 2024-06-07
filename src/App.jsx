@@ -171,7 +171,7 @@ const GiftCard = styled.div`
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 600px; 
   width: 100%;
   margin: 2rem 0;
   font-family: 'brown', sans-serif;
@@ -179,7 +179,7 @@ const GiftCard = styled.div`
   @media (max-width: 768px) {
     padding: 1.5rem;
     margin: 1.5rem 0;
-    max-width: 300px;
+    max-width: 500px; 
   }
 
   @media (max-width: 480px) {
@@ -243,6 +243,27 @@ const GiftCardTextBold = styled(GiftCardText)`
   }
 `;
 
+const GiftCardCode = styled.p`
+  font-size: 1.25em; 
+  color: #001A33;
+  text-align: start;
+  font-family: 'brown', sans-serif;
+  font-weight: 400;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em;
+  }
+`;
+
+const GiftCardCodeBold = styled.span`
+  font-weight: bold;
+`;
+
 const GiftCardInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -290,7 +311,7 @@ const GiftCardButton = styled(BasicStyledButton)`
 `;
 
 const handleUseButtonClick = () => {
-  alert('Presentkortet har använts!');
+  alert('Här kan du välja hur du vill använda ditt presentkort...');
 };
 
 function App() {
@@ -325,6 +346,7 @@ function App() {
                   <GiftCardText>2024-03-13</GiftCardText>
                 </GiftCardTextContainer>
               </GiftCardInfoContainer>
+              <GiftCardCode><GiftCardCodeBold>Kortkod:</GiftCardCodeBold> ABC123DEF</GiftCardCode>
               <GiftCardButtonContainer>
                 <GiftCardLinkButton onClick={() => setShowGiftCard(false)}>Tillbaka</GiftCardLinkButton>
                 <GiftCardButton onClick={handleUseButtonClick}>Använd</GiftCardButton>
