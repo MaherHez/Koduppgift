@@ -141,9 +141,9 @@ const BasicStyledButton = styled.button`
   }
 
   @media (max-width: 480px) {
-    height: 1.8rem;
-    width: 6rem;
-    font-size: 0.9em; 
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.2em; 
   }
 
   :hover { 
@@ -203,19 +203,26 @@ const GiftCardTitle = styled.h2`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.1em; 
+    font-size: 1.2em; 
     margin-bottom: 1rem;
   }
 `;
 
-const GiftCardTextContainer = styled.div`
+const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-bottom: 0.5rem;
 `;
 
-const GiftCardText = styled.p`
+const DateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 0.5rem;
+`;
+
+const PriceText = styled.p`
   font-size: 1.25em; 
   font-weight: bold;
   margin: 0.1rem;
@@ -230,9 +237,25 @@ const GiftCardText = styled.p`
   }
 `;
 
-const GiftCardTextBold = styled(GiftCardText)`
+const DateText = styled.p`
+  font-size: 1.25em; 
+  font-weight: bold;
+  margin: 0.1rem;
+  color: #3e4e55;
+
+  @media (max-width: 768px) {
+    font-size: 1.1em; 
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em; 
+  }
+`;
+
+const BoldText = styled.span`
   font-size: 1em; 
   color: #506172;
+  font-weight: bold;
 
   @media (max-width: 768px) {
     font-size: 0.9em; 
@@ -275,9 +298,14 @@ const GiftCardButtonContainer = styled.div`
   justify-content: flex-end;
   width: 100%;
   margin-top: 1rem;
+  gap: 0.5rem;
+
+  @media (max-width: 480px) {
+    justify-content: flex-end;
+  }
 `;
 
-const GiftCardLinkButton = styled.button`
+const BackButton = styled.button`
   background: none;
   border: none;
   color: #001a33;
@@ -297,8 +325,14 @@ const GiftCardLinkButton = styled.button`
     font-size: 0.9rem; 
   }
 
-  :hover {
-    text-decoration: none;
+  &:hover {
+    color: #001a33;
+     font-size: 1.1rem; 
+    text-decoration: underline;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    background: #E6F2EF; 
+    box-shadow: none;
   }
 `;
 
@@ -337,18 +371,18 @@ function App() {
             <GiftCard>
               <GiftCardTitle>Presentkort</GiftCardTitle>
               <GiftCardInfoContainer>
-                <GiftCardTextContainer>
-                  <GiftCardTextBold>Belopp kvar:</GiftCardTextBold>
-                  <GiftCardText>350 kr</GiftCardText>
-                </GiftCardTextContainer>
-                <GiftCardTextContainer>
-                  <GiftCardTextBold>Giltig t.o.m:</GiftCardTextBold>
-                  <GiftCardText>2024-03-13</GiftCardText>
-                </GiftCardTextContainer>
+                <PriceContainer>
+                  <BoldText>Belopp kvar:</BoldText>
+                  <PriceText>350 kr</PriceText>
+                </PriceContainer>
+                <DateContainer>
+                  <BoldText>Giltig t.o.m:</BoldText>
+                  <DateText>2024-03-13</DateText>
+                </DateContainer>
               </GiftCardInfoContainer>
               <GiftCardCode><GiftCardCodeBold>Kortkod:</GiftCardCodeBold> ABC123DEF</GiftCardCode>
               <GiftCardButtonContainer>
-                <GiftCardLinkButton onClick={() => setShowGiftCard(false)}>Tillbaka</GiftCardLinkButton>
+                <BackButton onClick={() => setShowGiftCard(false)}>Tillbaka</BackButton>
                 <GiftCardButton onClick={handleUseButtonClick}>Använd</GiftCardButton>
               </GiftCardButtonContainer>
             </GiftCard>
